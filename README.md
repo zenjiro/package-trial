@@ -1,6 +1,6 @@
 # Package Trial Zenjiro
 
-[![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg)](https://python.org)
+[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
 [![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](htmlcov/index.html)
 [![Tests](https://img.shields.io/badge/tests-78%20passed-brightgreen.svg)](#testing)
@@ -20,11 +20,17 @@ This is a Python package trial project designed for testing PyPI registration wi
 ## 📦 Installation / インストール
 
 ```bash
+# Install from PyPI (when published)
+pip install package-trial-zenjiro
+
 # Install from source
 pip install -e .
 
 # Install with test dependencies
 pip install -e .[test]
+
+# Install from built wheel
+pip install dist/package_trial_zenjiro-0.0.1-py3-none-any.whl
 ```
 
 ## 🔧 Usage / 使用方法
@@ -99,7 +105,7 @@ package_trial_zenjiro/
 ## 🛠️ Development / 開発
 
 ### Requirements
-- Python 3.11+
+- Python 3.8+
 - pytest (for testing)
 - pytest-cov (for coverage)
 
