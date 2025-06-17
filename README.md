@@ -4,6 +4,9 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
 [![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](htmlcov/index.html)
 [![Tests](https://img.shields.io/badge/tests-78%20passed-brightgreen.svg)](#testing)
+[![CI](https://github.com/zenjiro/package_trial_zenjiro/workflows/CI/badge.svg)](https://github.com/zenjiro/package_trial_zenjiro/actions)
+[![Issues](https://img.shields.io/github/issues/zenjiro/package_trial_zenjiro)](https://github.com/zenjiro/package_trial_zenjiro/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 これはPythonパッケージをPyPIに登録するためのテストプロジェクトです。
 
