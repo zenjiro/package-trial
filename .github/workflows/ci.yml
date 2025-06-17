@@ -70,7 +70,7 @@ jobs:
         python -c "from package_trial_zenjiro.main import add_one; print(f'add_one(5) = {add_one(5)}')"
     
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dist
         path: dist/
