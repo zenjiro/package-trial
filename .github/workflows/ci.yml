@@ -25,11 +25,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pytest pytest-cov
-        pip install -e .[test]
+    
+    - name: Install package
+      run: |
+        pip install -e .
     
     - name: Run tests with coverage
       run: |
-        PYTHONPATH=src python -m pytest tests/ -v --cov=src/package_trial_zenjiro --cov-report=xml --cov-report=term-missing
+        export PYTHONPATH=src
+        python -m pytest tests/ -v --cov=src/package_trial_zenjiro --cov-report=xml --cov-report=term-missing --cov-fail-under=90
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
