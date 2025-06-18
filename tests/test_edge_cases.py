@@ -1,12 +1,14 @@
 """
 Edge case tests for package_trial_zenjiro.
-
 This module focuses on testing edge cases, boundary conditions,
 and error scenarios that might not be covered in the main test suite.
 """
 
-import pytest
 import math
+import sys
+
+import pytest
+
 from src.package_trial_zenjiro.main import add_one
 
 
@@ -26,7 +28,6 @@ class TestEdgeCases:
         tiny_number = 1e-300
         result = add_one(tiny_number)
         assert result == 1.0 + tiny_number
-        
         # Test with smallest positive float
         smallest_float = sys.float_info.min
         result = add_one(smallest_float)
@@ -38,7 +39,6 @@ class TestEdgeCases:
         epsilon = sys.float_info.epsilon
         result = add_one(epsilon)
         assert result == 1.0 + epsilon
-        
         # Test with number smaller than epsilon
         tiny = epsilon / 2
         result = add_one(tiny)
@@ -48,23 +48,20 @@ class TestEdgeCases:
     def test_add_one_with_infinity(self, special_float_values):
         """Test add_one with infinite values."""
         # Positive infinity
-        result = add_one(special_float_values['positive_infinity'])
+        result = add_one(special_float_values["positive_infinity"])
         assert math.isinf(result) and result > 0
-        
         # Negative infinity
-        result = add_one(special_float_values['negative_infinity'])
+        result = add_one(special_float_values["negative_infinity"])
         assert math.isinf(result) and result < 0
 
     def test_add_one_with_nan(self, special_float_values):
         """Test add_one with NaN (Not a Number)."""
-        result = add_one(special_float_values['nan'])
+        result = add_one(special_float_values["nan"])
         assert math.isnan(result)
 
     def test_add_one_boundary_integers(self):
         """Test add_one with boundary integer values."""
         # Test with maximum and minimum values that can be represented
-        import sys
-        
         # For very large integers (Python handles these gracefully)
         max_int_like = 2**63 - 1  # Similar to C long long max
         result = add_one(max_int_like)
@@ -76,7 +73,6 @@ class TestEdgeCases:
         neg_zero = -0.0
         result = add_one(neg_zero)
         assert result == 1.0
-        
         # Test with very close to 1.0
         almost_one = 1.0 - sys.float_info.epsilon
         result = add_one(almost_one)
@@ -85,12 +81,11 @@ class TestEdgeCases:
     def test_add_one_type_consistency(self, sample_numbers):
         """Test that add_one maintains type consistency."""
         # Integer inputs should return integers
-        for num in sample_numbers['positive_integers']:
+        for num in sample_numbers["positive_integers"]:
             result = add_one(num)
             assert isinstance(result, int)
-            
         # Float inputs should return floats
-        for num in sample_numbers['floats']:
+        for num in sample_numbers["floats"]:
             result = add_one(num)
             assert isinstance(result, float)
 
@@ -106,7 +101,6 @@ class TestEdgeCases:
         """Test repeated application of add_one."""
         start_value = 0
         current = start_value
-        
         # Apply add_one multiple times
         for i in range(10):
             current = add_one(current)
@@ -116,15 +110,10 @@ class TestEdgeCases:
     def test_add_one_decimal_precision(self, decimal_places):
         """Test add_one with various decimal precisions."""
         # Create a number with specific decimal places
-        factor = 10 ** decimal_places
+        factor = 10**decimal_places
         test_num = 1.0 / factor  # e.g., 0.1, 0.01, 0.00001, etc.
-        
         result = add_one(test_num)
         expected = 1.0 + test_num
-        
         # Use appropriate tolerance for comparison
         tolerance = 1e-15
         assert abs(result - expected) < tolerance
-
-
-import sys  # Add this import at the top of the file

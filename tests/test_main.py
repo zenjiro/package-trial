@@ -6,6 +6,7 @@ including normal cases, edge cases, and error handling.
 """
 
 import pytest
+
 from src.package_trial_zenjiro.main import add_one
 
 
@@ -42,7 +43,7 @@ class TestAddOne:
         """Test add_one with very large numbers."""
         large_num = 10**15
         assert add_one(large_num) == large_num + 1
-        
+
         # Test with maximum safe integer in Python
         max_safe_int = 2**53 - 1
         assert add_one(max_safe_int) == max_safe_int + 1
@@ -56,24 +57,24 @@ class TestAddOne:
     def test_add_one_special_float_values(self):
         """Test add_one with special float values."""
         # Test with infinity
-        assert add_one(float('inf')) == float('inf')
-        assert add_one(float('-inf')) == float('-inf')
-        
+        assert add_one(float("inf")) == float("inf")
+        assert add_one(float("-inf")) == float("-inf")
+
         # Test with NaN
-        result = add_one(float('nan'))
-        assert str(result) == 'nan'  # NaN comparison always returns False
+        result = add_one(float("nan"))
+        assert str(result) == "nan"  # NaN comparison always returns False
 
     def test_add_one_type_errors(self):
         """Test add_one with invalid input types."""
         with pytest.raises(TypeError):
             add_one("string")
-        
+
         with pytest.raises(TypeError):
             add_one([1, 2, 3])
-        
+
         with pytest.raises(TypeError):
             add_one({"key": "value"})
-        
+
         with pytest.raises(TypeError):
             add_one(None)
 
@@ -85,15 +86,18 @@ class TestAddOne:
         assert result == expected
         assert result == (2 + 2j)
 
-    @pytest.mark.parametrize("input_val,expected", [
-        (0, 1),
-        (1, 2),
-        (-1, 0),
-        (10, 11),
-        (-10, -9),
-        (1.5, 2.5),
-        (-1.5, -0.5),
-    ])
+    @pytest.mark.parametrize(
+        "input_val,expected",
+        [
+            (0, 1),
+            (1, 2),
+            (-1, 0),
+            (10, 11),
+            (-10, -9),
+            (1.5, 2.5),
+            (-1.5, -0.5),
+        ],
+    )
     def test_add_one_parametrized(self, input_val, expected):
         """Parametrized test for add_one function."""
         assert add_one(input_val) == expected
@@ -103,7 +107,7 @@ class TestAddOne:
         # Integer input should return integer
         result_int = add_one(5)
         assert isinstance(result_int, int)
-        
+
         # Float input should return float
         result_float = add_one(5.0)
         assert isinstance(result_float, float)
