@@ -7,6 +7,7 @@ and adherence to Python best practices.
 
 import ast
 import inspect
+import math
 
 import pytest
 
@@ -122,7 +123,7 @@ class TestDocumentationAndQuality:
         initial_refcount = sys.getrefcount(test_value)
 
         # Call function
-        result = add_one(test_value)
+        add_one(test_value)
 
         # Reference count of input should not change significantly
         final_refcount = sys.getrefcount(test_value)
@@ -173,8 +174,5 @@ class TestDocumentationAndQuality:
         assert hasattr(add_one, "__doc__")
 
         # Help should be available
-        help_text = help(add_one)
+        help(add_one)
         # help() returns None but prints to stdout, so we just verify it doesn't crash
-
-
-import math  # Add this import at the top

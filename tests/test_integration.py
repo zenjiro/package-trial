@@ -10,7 +10,6 @@ import sys
 from pathlib import Path
 
 
-
 class TestIntegration:
     """Test class for integration scenarios."""
 
@@ -110,7 +109,6 @@ class TestIntegration:
     def test_package_in_sys_modules(self):
         """Test that package modules are properly registered in sys.modules."""
         # Import the package
-        from src.package_trial_zenjiro import main
 
         # Check if module is in sys.modules
         module_names = [

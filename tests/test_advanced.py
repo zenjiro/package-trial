@@ -210,4 +210,4 @@ class TestAdvancedScenarios:
             assert abs(result - expected) < 1e-10
         else:
             assert result == expected
-        assert type(result) == type(expected)
+        assert type(result) is type(expected)
