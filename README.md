@@ -19,6 +19,7 @@ This is a Python package trial project designed for testing PyPI registration wi
 - **Modern Packaging**: Uses `pyproject.toml` and hatchling build backend
 - **Type Support**: Works with int, float, complex, Decimal, Fraction types
 - **Production Ready**: Enterprise-level testing and quality assurance
+- **Modern CI/CD**: Updated GitHub Actions with latest security practices
 
 ## 📦 Installation / インストール
 
@@ -33,7 +34,7 @@ pip install -e .
 pip install -e .[test]
 
 # Install from built wheel
-pip install dist/package_trial_zenjiro-0.0.2-py3-none-any.whl
+pip install dist/package_trial_zenjiro-0.0.5-py3-none-any.whl
 ```
 
 ## 🔧 Usage / 使用方法

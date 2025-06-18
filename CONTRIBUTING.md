@@ -133,6 +133,13 @@ For feature requests, please:
 - Be respectful in discussions
 - Learn from the review process
 
+### CI/CD Guidelines
+- **GitHub Actions**: Use latest action versions for security
+- **Testing**: All CI tests must pass before merging
+- **Security**: Follow security best practices in workflows
+- **Release Process**: Use modernized release workflow (softprops/action-gh-release@v1)
+- **Documentation**: Update docs when changing CI/CD processes
+
 ## 🎯 Project Goals
 
 Remember that this project aims to demonstrate:
