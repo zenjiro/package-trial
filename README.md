@@ -33,7 +33,7 @@ pip install -e .
 pip install -e .[test]
 
 # Install from built wheel
-pip install dist/package_trial_zenjiro-0.0.1-py3-none-any.whl
+pip install dist/package_trial_zenjiro-0.0.2-py3-none-any.whl
 ```
 
 ## 🔧 Usage / 使用方法
