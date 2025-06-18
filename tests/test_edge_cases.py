@@ -6,7 +6,9 @@ and error scenarios that might not be covered in the main test suite.
 
 import math
 import sys
+
 import pytest
+
 from src.package_trial_zenjiro.main import add_one
 
 
