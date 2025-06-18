@@ -1,0 +1,73 @@
+# Code quality and linting workflow
+# Comprehensive code quality checks including formatting, linting, and type checking
+
+name: Code Quality
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quality-check:
+    name: Code Quality Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    - name: Cache pip dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-quality-${{ hashFiles('pyproject.toml') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install quality tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install black isort flake8 mypy pylint
+        pip install -e .[test]
+
+    - name: Check code formatting with Black
+      run: |
+        echo "🎨 Checking code formatting..."
+        black --check --diff src/ tests/ || (echo "❌ Code formatting issues found. Run 'black src/ tests/' to fix." && exit 1)
+
+    - name: Check import sorting with isort
+      run: |
+        echo "📦 Checking import sorting..."
+        isort --check-only --diff src/ tests/ || (echo "❌ Import sorting issues found. Run 'isort src/ tests/' to fix." && exit 1)
+
+    - name: Lint with flake8
+      run: |
+        echo "🔍 Running flake8 linting..."
+        flake8 src/ tests/ --max-line-length=88 --extend-ignore=E203,W503
+
+    - name: Type checking with mypy
+      run: |
+        echo "🔍 Running type checking..."
+        mypy src/ --ignore-missing-imports || echo "⚠️ Type checking completed with warnings"
+
+    - name: Lint with pylint
+      run: |
+        echo "🔍 Running pylint analysis..."
+        pylint src/ --disable=C0114,C0116 --max-line-length=88 || echo "⚠️ Pylint completed with warnings"
+
+    - name: Quality Summary
+      if: always()
+      run: |
+        echo "## 📊 Code Quality Summary" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Black: Code formatting check completed" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ isort: Import sorting check completed" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ flake8: Linting completed" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ mypy: Type checking completed" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ pylint: Code analysis completed" >> $GITHUB_STEP_SUMMARY

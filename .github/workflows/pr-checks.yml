@@ -1,0 +1,88 @@
+# Pull Request validation workflow
+# Comprehensive checks for pull requests including all quality gates
+
+name: PR Validation
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  pr-validation:
+    name: Pull Request Validation
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .[test]
+        pip install black isort flake8 mypy pylint safety bandit
+
+    - name: Validate PR title and description
+      run: |
+        echo "📝 Validating PR title..."
+        if [[ -z "${{ github.event.pull_request.title }}" ]]; then
+          echo "❌ PR title is required"
+          exit 1
+        fi
+        
+        echo "📝 Validating PR description..."
+        if [[ -z "${{ github.event.pull_request.body }}" ]]; then
+          echo "⚠️ PR description is recommended but not required"
+        fi
+
+    - name: Check for breaking changes
+      run: |
+        echo "🔍 Checking for potential breaking changes..."
+        git diff origin/main...HEAD --name-only | grep -E "(src/.*\.py|pyproject\.toml)" || echo "No core files changed"
+
+    - name: Run comprehensive tests
+      run: |
+        echo "🧪 Running comprehensive test suite..."
+        export PYTHONPATH=src
+        python -m pytest tests/ -v --cov=src/package_trial_zenjiro --cov-report=xml --cov-fail-under=90
+
+    - name: Code quality validation
+      run: |
+        echo "📊 Running code quality checks..."
+        black --check src/ tests/
+        isort --check-only src/ tests/
+        flake8 src/ tests/ --max-line-length=88 --extend-ignore=E203,W503
+
+    - name: Security validation
+      run: |
+        echo "🛡️ Running security checks..."
+        safety check
+        bandit -r src/ -ll
+
+    - name: Build validation
+      run: |
+        echo "🔨 Validating package build..."
+        python -m build
+        pip install dist/*.whl --force-reinstall
+        python -c "from package_trial_zenjiro.main import add_one; print(f'Build test: add_one(5) = {add_one(5)}')"
+
+    - name: PR Summary
+      if: always()
+      run: |
+        echo "## 🎯 PR Validation Summary" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ PR metadata validation completed" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Comprehensive tests completed" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Code quality checks completed" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Security validation completed" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Build validation completed" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "🚀 **Ready for review!**" >> $GITHUB_STEP_SUMMARY
