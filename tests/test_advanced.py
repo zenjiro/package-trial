@@ -5,9 +5,8 @@ This module contains advanced testing scenarios including property-based tests,
 stress tests, and comprehensive validation scenarios.
 """
 
-import decimal
-import math
 import sys
+from decimal import Decimal
 from fractions import Fraction
 
 import pytest
@@ -20,7 +19,6 @@ class TestAdvancedScenarios:
 
     def test_add_one_with_decimal_type(self):
         """Test add_one with Python's Decimal type."""
-        from decimal import Decimal
 
         # Decimal should work with add_one
         dec_val = Decimal("1.5")
@@ -125,7 +123,6 @@ class TestAdvancedScenarios:
         assert isinstance(add_one(1 + 2j), complex)
 
         # Decimal input -> Decimal output
-        from decimal import Decimal
 
         assert isinstance(add_one(Decimal("1.5")), Decimal)
 
