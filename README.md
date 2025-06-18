@@ -19,7 +19,10 @@ This is a Python package trial project designed for testing PyPI registration wi
 - **Modern Packaging**: Uses `pyproject.toml` and hatchling build backend
 - **Type Support**: Works with int, float, complex, Decimal, Fraction types
 - **Production Ready**: Enterprise-level testing and quality assurance
-- **Modern CI/CD**: Updated GitHub Actions with latest security practices
+- **Modern CI/CD**: Comprehensive CI/CD pipeline with security scanning and quality checks
+- **Automated Security**: Daily security scans with CodeQL, Safety, Bandit, and Semgrep
+- **Quality Assurance**: Automated code formatting, linting, and type checking
+- **Dependency Management**: Automated dependency updates with Dependabot
 
 ## 📦 Installation / インストール
 
@@ -112,6 +115,8 @@ package_trial_zenjiro/
 - Python 3.8+
 - pytest (for testing)
 - pytest-cov (for coverage)
+- black, isort, flake8 (for code quality)
+- safety, bandit (for security scanning)
 
 ### Setup Development Environment
 ```bash
@@ -131,6 +136,29 @@ PYTHONPATH=src python3 -m pytest tests/
 - **Test Pass Rate**: 100%
 - **Code Style**: PEP 8 compliant
 - **Documentation**: Comprehensive inline and external docs
+
+## 🔄 CI/CD Pipeline / CI/CDパイプライン
+
+### Automated Workflows
+- **🧪 CI Tests**: Run on every push/PR with Python 3.8-3.12 matrix
+- **🔍 Code Quality**: Automated formatting, linting, and type checking
+- **🛡️ Security Scans**: Daily vulnerability scanning with multiple tools
+- **📊 CodeQL Analysis**: Weekly security analysis by GitHub
+- **🔄 Dependency Updates**: Automated weekly dependency updates
+- **✅ PR Validation**: Comprehensive pull request validation
+
+### Security Tools
+- **Safety**: Python dependency vulnerability scanner
+- **Bandit**: Python security linter
+- **Semgrep**: Static analysis security scanner
+- **CodeQL**: GitHub's semantic code analysis
+
+### Quality Tools
+- **Black**: Code formatter
+- **isort**: Import sorter
+- **flake8**: Style guide enforcement
+- **mypy**: Static type checker
+- **pylint**: Code analysis tool
 
 ## 📚 Documentation / ドキュメント
 
