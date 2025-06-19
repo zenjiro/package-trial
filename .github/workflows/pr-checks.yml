@@ -34,7 +34,7 @@ jobs:
     - name: Run tests
       run: |
         export PYTHONPATH=src
-        python -m pytest tests/ -v --cov=src/package_trial_zenjiro --cov-report=term-missing
+        python -m pytest tests/ -v
 
   code-quality:
     name: Code Quality
