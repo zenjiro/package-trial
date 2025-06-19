@@ -183,7 +183,7 @@ pytest -k "test_add_one_positive"
 ### 品質ゲート / Quality Gates
 ```yaml
 # CI/CDで実行されるテストコマンド
-PYTHONPATH=src python -m pytest tests/ -v \
+PYTHONPATH=src python3 -m pytest tests/ -v \
   --cov=src/package_trial_zenjiro \
   --cov-report=xml \
   --cov-fail-under=90
