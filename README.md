@@ -140,7 +140,7 @@ PYTHONPATH=src python3 -m pytest tests/
 ## 🔄 CI/CD Pipeline / CI/CDパイプライン
 
 ### Enterprise-Grade Automation
-Our CI/CD pipeline provides comprehensive automation with zero-error quality assurance:
+Our CI/CD pipeline provides comprehensive automation, aiming for the highest standards of quality assurance:
 
 #### **🧪 Continuous Integration**
 - **Multi-Version Testing**: Python 3.8-3.12 matrix testing on every push/PR
