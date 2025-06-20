@@ -40,7 +40,7 @@ class TestPerformance:
         total_time = end_time - start_time
         avg_time_per_call = total_time / num_calls
 
-        # Should average well under 5 microseconds per call (adjusted for CI environments)
+        # Should average well under 5 microseconds per call (adjusted for CI)
         assert avg_time_per_call < 0.000005
         assert result == test_value + 1
 
