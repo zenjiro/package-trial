@@ -5,6 +5,7 @@
 [![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](htmlcov/index.html)
 [![Tests](https://img.shields.io/badge/tests-78%20passed-brightgreen.svg)](#testing)
 [![CI](https://github.com/zenjiro/package-trial/workflows/CI/badge.svg)](https://github.com/zenjiro/package-trial/actions)
+[![Status Checks](https://img.shields.io/badge/status%20checks-enabled-brightgreen.svg)](docs/status_checks.md)
 [![Issues](https://img.shields.io/github/issues/zenjiro/package-trial)](https://github.com/zenjiro/package-trial/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -110,6 +111,18 @@ package_trial_zenjiro/
 ```
 
 ## 🛠️ Development / 開発
+
+### Status Checks / ステータスチェック
+
+This repository uses GitHub Status Checks to ensure code quality and functionality:
+
+- **Quick Tests**: Basic functionality tests
+- **Code Quality**: Formatting, linting, and type checking
+- **Security Check**: Vulnerability scanning
+- **Build Check**: Package building and installation verification
+- **Python Compatibility**: Testing across Python versions
+
+For more details, see [Status Checks Documentation](docs/status_checks.md).
 
 ### Requirements
 - Python 3.10+

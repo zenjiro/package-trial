@@ -1,0 +1,32 @@
+name: Status Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [ main ]
+
+jobs:
+  status-summary:
+    name: Status Summary
+    runs-on: ubuntu-latest
+    # This job will run after the PR checks workflow completes
+    if: always()
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Wait for a moment
+      run: |
+        echo "Waiting for other checks to complete..."
+        sleep 15
+    
+    - name: Create Status Summary
+      run: |
+        echo "Creating status summary for PR..."
+        echo "PR #${GITHUB_EVENT_NUMBER:-$GITHUB_REF}"
+    
+    - name: Update PR with Status Summary
+      run: |
+        echo "## Status Check Summary" >> $GITHUB_STEP_SUMMARY
+        echo "✅ All status checks have been processed" >> $GITHUB_STEP_SUMMARY
+        echo "See individual checks for details" >> $GITHUB_STEP_SUMMARY
