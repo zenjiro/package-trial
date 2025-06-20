@@ -57,7 +57,7 @@ gh workflow run release.yml -f version=v0.0.5
 
 ### 3. Release Process
 When a tag is pushed:
-1. ✅ **Tests run** on all Python versions (3.8-3.12)
+1. ✅ **Tests run** on all Python versions (3.10-3.12)
 2. ✅ **Security scan** with safety
 3. ✅ **Package builds** (wheel + source distribution)
 4. ✅ **Installation test** verifies the package works
