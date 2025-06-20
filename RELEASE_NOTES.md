@@ -1,6 +1,15 @@
 # Release Notes
 
-## Version 0.0.5 (Latest) - 2024-06-18
+## Version 0.0.6 (Latest) - 2025-06-20
+
+### 🔄 Python Version Update
+- **Updated Python Requirement**: Changed minimum Python version from 3.8+ to 3.10+
+- **Added Python 3.13 Support**: Now supports Python 3.10, 3.11, 3.12, and 3.13
+- **Removed EOL Python Versions**: Dropped support for Python 3.8 and 3.9 as they reached EOL
+- **Updated Documentation**: All documentation now reflects the new Python version requirements
+- **Updated CI/CD**: Workflows now test only Python 3.10-3.13
+
+## Version 0.0.5 - 2024-06-18
 
 ### 🔧 CI/CD Improvements
 - **Modernized GitHub Actions**: Replaced deprecated actions with latest versions
@@ -13,7 +22,7 @@
 ### 🛡️ Security Updates
 - Updated supported versions in SECURITY.md
 - Removed support for v0.0.1 (security reasons)
-- Added support for v0.0.2, v0.0.3, v0.0.4, v0.0.5
+- Added support for v0.0.2, v0.0.3, v0.0.4, v0.0.5, v0.0.6
 
 ### 📦 Package Updates
 - Version bump to 0.0.5
@@ -45,19 +54,19 @@
 ### 1. Automatic Release (Recommended)
 ```bash
 # Create and push a version tag
-git tag v0.0.5
-git push origin v0.0.5
+git tag v0.0.6
+git push origin v0.0.6
 ```
 
 ### 2. Manual Release
 ```bash
 # Use GitHub CLI
-gh workflow run release.yml -f version=v0.0.5
+gh workflow run release.yml -f version=v0.0.6
 ```
 
 ### 3. Release Process
 When a tag is pushed:
-1. ✅ **Tests run** on all Python versions (3.8-3.12)
+1. ✅ **Tests run** on all Python versions (3.10-3.13)
 2. ✅ **Security scan** with safety
 3. ✅ **Package builds** (wheel + source distribution)
 4. ✅ **Installation test** verifies the package works
@@ -73,7 +82,7 @@ Add these secrets to your GitHub repository:
 ### 5. Version Bumping
 Update version in `pyproject.toml` before creating release:
 ```toml
-version = "0.0.5"  # Update this
+version = "0.0.6"  # Update this
 ```
 
 ## Release Checklist
