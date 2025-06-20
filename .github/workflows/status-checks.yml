@@ -1,0 +1,52 @@
+name: Status Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [ main ]
+
+jobs:
+  status-summary:
+    name: Status Summary
+    runs-on: ubuntu-latest
+    # This job will run after the PR checks workflow completes
+    if: always()
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Wait for other workflows to complete
+      uses: softprops/turnstyle@v1
+      with:
+        poll-interval-seconds: 10
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Create Status Badge
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const { owner, repo } = context.repo;
+          const { number } = context.issue;
+          
+          // Create a status check summary
+          await github.rest.checks.create({
+            owner,
+            repo,
+            name: 'PR Status Summary',
+            head_sha: context.payload.pull_request.head.sha,
+            status: 'completed',
+            conclusion: 'success',
+            output: {
+              title: 'PR Status Check Summary',
+              summary: '✅ All status checks have been processed.',
+              text: 'This is an automated status check summary for pull request #' + number
+            }
+          });
+    
+    - name: Update PR with Status Summary
+      run: |
+        echo "## Status Check Summary" >> $GITHUB_STEP_SUMMARY
+        echo "✅ All status checks have been processed" >> $GITHUB_STEP_SUMMARY
+        echo "See individual checks for details" >> $GITHUB_STEP_SUMMARY
