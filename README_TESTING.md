@@ -152,7 +152,7 @@ pytest -k "test_add_one_positive"
 - **品質・ドキュメントテスト**: 11 ケース ✅
 
 ### CI/CD品質ゲート / CI/CD Quality Gates
-- **自動テスト実行**: Python 3.10-3.12 マトリックス
+- **自動テスト実行**: Python 3.10-3.13 マトリックス
 - **コード品質チェック**: Black, isort, flake8 (0 errors)
 - **セキュリティスキャン**: Safety, Bandit, Semgrep, CodeQL
 - **カバレッジ検証**: 90%以上必須 (現在100%)

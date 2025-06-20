@@ -143,7 +143,7 @@ PYTHONPATH=src python3 -m pytest tests/
 Our CI/CD pipeline provides comprehensive automation, aiming for the highest standards of quality assurance:
 
 #### **🧪 Continuous Integration**
-- **Multi-Version Testing**: Python 3.10-3.12 matrix testing on every push/PR
+- **Multi-Version Testing**: Python 3.10-3.13 matrix testing on every push/PR
 - **100% Test Coverage**: 78 comprehensive test cases with full coverage validation
 - **Performance Validation**: Automated performance and memory efficiency testing
 - **Build Verification**: Package build and installation validation

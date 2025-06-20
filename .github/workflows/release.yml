@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10", "3.11", "3.12"]
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
 
     steps:
     - uses: actions/checkout@v4
@@ -101,7 +101,7 @@ jobs:
           ### ✨ Features
           - Package trial with comprehensive testing
           - 100% test coverage maintained
-          - Support for Python 3.10-3.12
+          - Support for Python 3.10-3.13
           
           ### 📦 Installation
           ```bash
