@@ -37,8 +37,8 @@ Paste error message here
 
 **Environment (please complete the following information):**
 - OS: [e.g. Ubuntu 20.04, Windows 10, macOS 12]
-- Python version: [e.g. 3.8.10, 3.11.2]
-- Package version: [e.g. 0.0.1]
+- Python version: [e.g. 3.10.12, 3.11.2, 3.12.0, 3.13.0]
+- Package version: [e.g. 0.0.6]
 - Installation method: [e.g. pip install, from source]
 
 **Additional context**

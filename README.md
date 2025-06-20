@@ -1,6 +1,6 @@
 # Package Trial Zenjiro
 
-[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
+[![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
 [![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](htmlcov/index.html)
 [![Tests](https://img.shields.io/badge/tests-78%20passed-brightgreen.svg)](#testing)
@@ -112,7 +112,7 @@ package_trial_zenjiro/
 ## 🛠️ Development / 開発
 
 ### Requirements
-- Python 3.8+
+- Python 3.10+
 - pytest (for testing)
 - pytest-cov (for coverage)
 - black, isort, flake8 (for code quality)
@@ -143,7 +143,7 @@ PYTHONPATH=src python3 -m pytest tests/
 Our CI/CD pipeline provides comprehensive automation, aiming for the highest standards of quality assurance:
 
 #### **🧪 Continuous Integration**
-- **Multi-Version Testing**: Python 3.8-3.12 matrix testing on every push/PR
+- **Multi-Version Testing**: Python 3.10-3.13 matrix testing on every push/PR
 - **100% Test Coverage**: 78 comprehensive test cases with full coverage validation
 - **Performance Validation**: Automated performance and memory efficiency testing
 - **Build Verification**: Package build and installation validation
