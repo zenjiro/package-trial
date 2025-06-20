@@ -217,4 +217,19 @@ This project demonstrates:
 - Open source project structure
 
 Perfect for learning Python packaging, testing, and quality assurance! 🐍✨
-# Trigger GitHub Actions
+## 🔄 Trigger GitHub Actions / GitHub Actionsのトリガー
+
+GitHub Actionsワークフローは以下のイベントで自動的にトリガーされます：
+
+- **Push**: メインブランチへのプッシュ時
+- **Pull Request**: プルリクエスト作成/更新時
+- **Schedule**: 毎日のセキュリティスキャン（午前0時UTC）
+- **Workflow Dispatch**: 手動トリガー
+
+手動でワークフローを実行するには：
+1. リポジトリの「Actions」タブに移動
+2. 左側のサイドバーから実行したいワークフロー（CI、Security Scan など）を選択
+3. 「Run workflow」ボタンをクリック
+4. 必要に応じてブランチを選択し、「Run workflow」をクリック
+
+詳細については[GitHub Actionsのドキュメント](https://docs.github.com/en/actions)を参照してください。
