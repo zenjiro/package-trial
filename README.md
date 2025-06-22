@@ -36,7 +36,7 @@ pip install -e .
 pip install -e .[test]
 
 # ビルド済みホイールからインストール
-pip install dist/package_trial_zenjiro-0.0.5-py3-none-any.whl
+pip install dist/package_trial_zenjiro-0.0.7-py3-none-any.whl
 ```
 
 ## 🔧 使用方法
