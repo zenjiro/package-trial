@@ -104,7 +104,7 @@ package_trial_zenjiro/
 ├── htmlcov/                    # HTMLカバレッジレポート
 ├── pyproject.toml              # パッケージ設定
 ├── README.md                   # このファイル
-├── README_TESTING.md         # 詳細なテストガイド
+├── README_TESTING.md           # 詳細なテストガイド
 └── LICENSE                     # Apache 2.0ライセンス
 ```
 
