@@ -8,7 +8,7 @@
 
 ```
 tests/
-├── __init__.py              # テストパッケージ初期化
+├── __init__.py             # テストパッケージ初期化
 ├── conftest.py             # 共通フィクスチャとpytest設定
 ├── test_main.py            # メイン機能のテスト (18 cases)
 ├── test_edge_cases.py      # エッジケースと境界条件テスト (14 cases)
