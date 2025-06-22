@@ -104,7 +104,7 @@ package_trial_zenjiro/
 ├── htmlcov/                    # HTMLカバレッジレポート
 ├── pyproject.toml              # パッケージ設定
 ├── README.md                   # このファイル
-├── README_TESTING.md         # 詳細なテストガイド
+├── README_TESTING.md          # 詳細なテストガイド
 └── LICENSE                     # Apache 2.0ライセンス
 ```
 
@@ -215,7 +215,7 @@ PYTHONPATH=src python3 -m pytest tests/
 - オープンソースプロジェクト構造
 
 Pythonのパッケージング、テスト、品質保証を学ぶのに最適です！🐍✨
-## 🔄 Trigger GitHub Actions / GitHub Actionsのトリガー
+## 🔄 GitHub Actionsのトリガー
 
 GitHub Actionsワークフローは以下のイベントで自動的にトリガーされます：
 
