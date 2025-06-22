@@ -1,6 +1,13 @@
 # Release Notes
 
-## Version 0.0.6 (Latest) - 2025-06-20
+## Version 0.0.7 (Latest) - 2024-07-05
+
+### 📝 Documentation Improvements
+- **README表記の修正**: 「Trigger GitHub Actions / GitHub Actionsのトリガー」から英語部分を削除し、日本語のみに統一
+- **フォーマット修正**: READMEファイル内のコメント位置を整えて読みやすさを向上
+- **一貫性の向上**: ドキュメント全体の表記スタイルを統一
+
+## Version 0.0.6 - 2025-06-20
 
 ### 🔄 Python Version Update
 - **Updated Python Requirement**: Changed minimum Python version from 3.8+ to 3.10+
@@ -54,14 +61,14 @@
 ### 1. Automatic Release (Recommended)
 ```bash
 # Create and push a version tag
-git tag v0.0.6
-git push origin v0.0.6
+git tag v0.0.7
+git push origin v0.0.7
 ```
 
 ### 2. Manual Release
 ```bash
 # Use GitHub CLI
-gh workflow run release.yml -f version=v0.0.6
+gh workflow run release.yml -f version=v0.0.7
 ```
 
 ### 3. Release Process
@@ -82,7 +89,7 @@ Add these secrets to your GitHub repository:
 ### 5. Version Bumping
 Update version in `pyproject.toml` before creating release:
 ```toml
-version = "0.0.6"  # Update this
+version = "0.0.7"  # Update this
 ```
 
 ## Release Checklist
