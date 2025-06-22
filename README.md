@@ -11,212 +11,210 @@
 
 これはPythonパッケージをPyPIに登録するためのテストプロジェクトです。
 
-This is a Python package trial project designed for testing PyPI registration with comprehensive test coverage and modern packaging standards.
+## 🚀 機能
 
-## 🚀 Features / 機能
+- **シンプルなAPI**: デモンストレーション用の単一関数 `add_one()`
+- **100%テストカバレッジ**: 78のテストケースを含む包括的なテストスイート
+- **最新のパッケージング**: `pyproject.toml`とhatchlingビルドバックエンドを使用
+- **型サポート**: int、float、complex、Decimal、Fraction型に対応
+- **本番環境対応**: エンタープライズレベルのテストと品質保証
+- **最新のCI/CD**: セキュリティスキャンと品質チェックを含む包括的なCI/CDパイプライン
+- **自動化されたセキュリティ**: CodeQL、Safety、Bandit、Semgrepによる毎日のセキュリティスキャン
+- **品質保証**: 自動コードフォーマット、リンティング、型チェック
+- **依存関係管理**: Dependabotによる自動依存関係更新
 
-- **Simple API**: Single function `add_one()` for demonstration
-- **100% Test Coverage**: Comprehensive test suite with 78 test cases
-- **Modern Packaging**: Uses `pyproject.toml` and hatchling build backend
-- **Type Support**: Works with int, float, complex, Decimal, Fraction types
-- **Production Ready**: Enterprise-level testing and quality assurance
-- **Modern CI/CD**: Comprehensive CI/CD pipeline with security scanning and quality checks
-- **Automated Security**: Daily security scans with CodeQL, Safety, Bandit, and Semgrep
-- **Quality Assurance**: Automated code formatting, linting, and type checking
-- **Dependency Management**: Automated dependency updates with Dependabot
-
-## 📦 Installation / インストール
+## 📦 インストール
 
 ```bash
-# Install from PyPI (when published)
+# PyPIからインストール（公開後）
 pip install package-trial-zenjiro
 
-# Install from source
+# ソースからインストール
 pip install -e .
 
-# Install with test dependencies
+# テスト依存関係付きでインストール
 pip install -e .[test]
 
-# Install from built wheel
+# ビルド済みホイールからインストール
 pip install dist/package_trial_zenjiro-0.0.5-py3-none-any.whl
 ```
 
-## 🔧 Usage / 使用方法
+## 🔧 使用方法
 
 ```python
 from package_trial_zenjiro.main import add_one
 
-# Basic usage
+# 基本的な使用法
 result = add_one(5)
-print(result)  # Output: 6
+print(result)  # 出力: 6
 
-# Works with different number types
+# 様々な数値型に対応
 print(add_one(3.14))    # 4.14
 print(add_one(-1))      # 0
 print(add_one(1+2j))    # (2+2j)
 ```
 
-## 🧪 Testing / テスト
+## 🧪 テスト
 
-This project includes a comprehensive test suite with **100% code coverage**.
+このプロジェクトには**100%コードカバレッジ**の包括的なテストスイートが含まれています。
 
-### Test Categories
+### テストカテゴリ
 
-- **Core Functionality** (18 tests): Basic operations and type handling
-- **Edge Cases** (14 tests): Boundary conditions and special values
-- **Advanced Scenarios** (21 tests): Complex types and numerical stability
-- **Performance** (6 tests): Speed and memory efficiency
-- **Integration** (9 tests): Package structure and imports
-- **Quality Assurance** (11 tests): Code quality and documentation
+- **コア機能** (18テスト): 基本操作と型処理
+- **エッジケース** (14テスト): 境界条件と特殊値
+- **高度なシナリオ** (21テスト): 複雑な型と数値安定性
+- **パフォーマンス** (6テスト): 速度とメモリ効率
+- **統合** (9テスト): パッケージ構造とインポート
+- **品質保証** (11テスト): コード品質とドキュメント
 
-### Running Tests
+### テスト実行
 
 ```bash
-# Run all tests with coverage
+# カバレッジ付きですべてのテストを実行
 PYTHONPATH=src python3 -m pytest tests/ -v --cov=src/package_trial_zenjiro
 
-# Quick test run
+# クイックテスト実行
 PYTHONPATH=src python3 -m pytest tests/ -q
 
-# Generate HTML coverage report
+# HTMLカバレッジレポートを生成
 PYTHONPATH=src python3 -m pytest tests/ --cov=src --cov-report=html
 ```
 
-### Test Status
-- ✅ All tests passing
-- ✅ 100% code coverage
-- ✅ 6 test categories covering all scenarios
-- ✅ Comprehensive edge case validation
+### テストステータス
+- ✅ すべてのテストが成功
+- ✅ 100%コードカバレッジ
+- ✅ すべてのシナリオをカバーする6つのテストカテゴリ
+- ✅ 包括的なエッジケース検証
 
-## 📊 Project Structure / プロジェクト構造
+## 📊 プロジェクト構造
 
 ```
 package_trial_zenjiro/
 ├── src/package_trial_zenjiro/
 │   ├── __init__.py
-│   └── main.py              # Core functionality
-├── tests/                   # Comprehensive test suite
-│   ├── conftest.py         # Shared fixtures
-│   ├── test_main.py        # Core tests
-│   ├── test_edge_cases.py  # Edge case tests
-│   ├── test_advanced.py    # Advanced scenarios
-│   ├── test_performance.py # Performance tests
-│   ├── test_integration.py # Integration tests
-│   └── test_documentation.py # Quality tests
-├── htmlcov/                # HTML coverage reports
-├── pyproject.toml          # Package configuration
-├── README.md               # This file
-├── README_TESTING.md       # Detailed testing guide
-└── LICENSE                 # Apache 2.0 License
+│   └── main.py              # コア機能
+├── tests/                   # 包括的なテストスイート
+│   ├── conftest.py         # 共有フィクスチャ
+│   ├── test_main.py        # コアテスト
+│   ├── test_edge_cases.py  # エッジケーステスト
+│   ├── test_advanced.py    # 高度なシナリオ
+│   ├── test_performance.py # パフォーマンステスト
+│   ├── test_integration.py # 統合テスト
+│   └── test_documentation.py # 品質テスト
+├── htmlcov/                # HTMLカバレッジレポート
+├── pyproject.toml          # パッケージ設定
+├── README.md               # このファイル
+├── README_TESTING.md       # 詳細なテストガイド
+└── LICENSE                 # Apache 2.0ライセンス
 ```
 
-## 🛠️ Development / 開発
+## 🛠️ 開発
 
-### Status Checks / ステータスチェック
+### ステータスチェック
 
-This repository uses GitHub Status Checks to ensure code quality and functionality:
+このリポジトリはコード品質と機能性を確保するためにGitHubステータスチェックを使用しています：
 
-- **Quick Tests**: Basic functionality tests
-- **Code Quality**: Formatting, linting, and type checking
-- **Security Check**: Vulnerability scanning
-- **Build Check**: Package building and installation verification
-- **Python Compatibility**: Testing across Python versions
+- **クイックテスト**: 基本的な機能テスト
+- **コード品質**: フォーマット、リンティング、型チェック
+- **セキュリティチェック**: 脆弱性スキャン
+- **ビルドチェック**: パッケージのビルドとインストール検証
+- **Python互換性**: 複数のPythonバージョンでのテスト
 
-For more details, see [Status Checks Documentation](docs/status_checks.md).
+詳細については[ステータスチェックのドキュメント](docs/status_checks.md)を参照してください。
 
-### Requirements
+### 要件
 - Python 3.10+
-- pytest (for testing)
-- pytest-cov (for coverage)
-- black, isort, flake8 (for code quality)
-- safety, bandit (for security scanning)
+- pytest (テスト用)
+- pytest-cov (カバレッジ用)
+- black, isort, flake8 (コード品質用)
+- safety, bandit (セキュリティスキャン用)
 
-### Setup Development Environment
+### 開発環境のセットアップ
 ```bash
-# Clone the repository
+# リポジトリをクローン
 git clone <repository-url>
 cd package_trial_zenjiro
 
-# Install in development mode
+# 開発モードでインストール
 pip install -e .[test]
 
-# Run tests
+# テストを実行
 PYTHONPATH=src python3 -m pytest tests/
 ```
 
-### Quality Standards
-- **Test Coverage**: Minimum 90% (Currently 100%)
-- **Test Pass Rate**: 100%
-- **Code Style**: PEP 8 compliant
-- **Documentation**: Comprehensive inline and external docs
+### 品質基準
+- **テストカバレッジ**: 最低90%（現在100%）
+- **テスト合格率**: 100%
+- **コードスタイル**: PEP 8準拠
+- **ドキュメント**: 包括的なインラインおよび外部ドキュメント
 
-## 🔄 CI/CD Pipeline / CI/CDパイプライン
+## 🔄 CI/CDパイプライン
 
-### Enterprise-Grade Automation
-Our CI/CD pipeline provides comprehensive automation, aiming for the highest standards of quality assurance:
+### エンタープライズグレードの自動化
+当社のCI/CDパイプラインは、最高水準の品質保証を目指した包括的な自動化を提供します：
 
-#### **🧪 Continuous Integration**
-- **Multi-Version Testing**: Python 3.10-3.13 matrix testing on every push/PR
-- **100% Test Coverage**: 78 comprehensive test cases with full coverage validation
-- **Performance Validation**: Automated performance and memory efficiency testing
-- **Build Verification**: Package build and installation validation
+#### **🧪 継続的インテグレーション**
+- **マルチバージョンテスト**: すべてのプッシュ/PRでPython 3.10-3.13のマトリックステスト
+- **100%テストカバレッジ**: 完全なカバレッジ検証を備えた78の包括的なテストケース
+- **パフォーマンス検証**: 自動化されたパフォーマンスとメモリ効率のテスト
+- **ビルド検証**: パッケージのビルドとインストールの検証
 
-#### **🔍 Code Quality Assurance**
-- **Black**: Automatic code formatting with consistent style
-- **isort**: Import organization with proper grouping (stdlib → 3rd party → local)
-- **flake8**: PEP 8 compliance and error detection (currently: 0 errors)
-- **mypy**: Static type checking for enhanced reliability
-- **pylint**: Comprehensive code analysis and quality metrics
+#### **🔍 コード品質保証**
+- **Black**: 一貫したスタイルでの自動コードフォーマット
+- **isort**: 適切なグループ化によるインポート整理（標準ライブラリ → サードパーティ → ローカル）
+- **flake8**: PEP 8準拠とエラー検出（現在：0エラー）
+- **mypy**: 信頼性向上のための静的型チェック
+- **pylint**: 包括的なコード分析と品質メトリクス
 
-#### **🛡️ Security & Vulnerability Management**
-- **Daily Security Scans**: Automated vulnerability detection
-  - **Safety**: Python dependency CVE scanning
-  - **Bandit**: Security pattern analysis for Python code
-  - **Semgrep**: Static analysis with custom security rules
-- **Weekly CodeQL Analysis**: GitHub's semantic security analysis
-- **Automated Dependency Updates**: Dependabot weekly updates with security patches
+#### **🛡️ セキュリティと脆弱性管理**
+- **毎日のセキュリティスキャン**: 自動化された脆弱性検出
+  - **Safety**: Python依存関係のCVEスキャン
+  - **Bandit**: Pythonコードのセキュリティパターン分析
+  - **Semgrep**: カスタムセキュリティルールによる静的分析
+- **週次CodeQL分析**: GitHubのセマンティックセキュリティ分析
+- **自動依存関係更新**: セキュリティパッチを含むDependabotの週次更新
 
-#### **✅ Pull Request Validation**
-- **Comprehensive Checks**: All quality gates must pass before merge
-- **Metadata Validation**: PR title and description requirements
-- **Breaking Change Detection**: Automatic detection of potentially breaking changes
-- **Security Validation**: Multi-tool security analysis on every PR
+#### **✅ プルリクエスト検証**
+- **包括的なチェック**: マージ前にすべての品質ゲートに合格する必要あり
+- **メタデータ検証**: PRのタイトルと説明の要件
+- **破壊的変更の検出**: 潜在的に破壊的な変更の自動検出
+- **セキュリティ検証**: すべてのPRでのマルチツールセキュリティ分析
 
-### 📊 Quality Metrics & Standards
-- **Test Success Rate**: 100% (78/78 tests passing)
-- **Code Coverage**: 100% (maintained automatically)
-- **Linting Errors**: 0 (enforced by CI)
-- **Security Vulnerabilities**: 0 (continuously monitored)
-- **Code Quality Score**: A+ (pylint validated)
+### 📊 品質メトリクスと基準
+- **テスト成功率**: 100%（78/78テスト合格）
+- **コードカバレッジ**: 100%（自動的に維持）
+- **リンティングエラー**: 0（CIによって強制）
+- **セキュリティ脆弱性**: 0（継続的にモニタリング）
+- **コード品質スコア**: A+（pylintで検証）
 
-## 📚 Documentation / ドキュメント
+## 📚 ドキュメント
 
-- **[Testing Guide](README_TESTING.md)**: Comprehensive testing documentation
-- **[Development Guidelines](.agent.md)**: Development best practices
-- **[API Documentation](src/package_trial_zenjiro/main.py)**: Function documentation
+- **[テストガイド](README_TESTING.md)**: 包括的なテストドキュメント
+- **[開発ガイドライン](.agent.md)**: 開発のベストプラクティス
+- **[APIドキュメント](src/package_trial_zenjiro/main.py)**: 関数のドキュメント
 
-## 🤝 Contributing / 貢献
+## 🤝 貢献
 
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all tests pass with 100% coverage
-5. Submit a pull request
+1. リポジトリをフォーク
+2. 機能ブランチを作成
+3. 新機能のテストを追加
+4. すべてのテストが100%カバレッジで合格することを確認
+5. プルリクエストを提出
 
-## 📄 License / ライセンス
+## 📄 ライセンス
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+このプロジェクトはApache License 2.0の下でライセンスされています - 詳細は[LICENSE](LICENSE)ファイルを参照してください。
 
-## 🎯 Project Goals / プロジェクト目標
+## 🎯 プロジェクト目標
 
-This project demonstrates:
-- Modern Python packaging practices
-- Comprehensive testing strategies
-- Quality assurance methodologies
-- Documentation best practices
-- Open source project structure
+このプロジェクトは以下を実証しています：
+- 最新のPythonパッケージング手法
+- 包括的なテスト戦略
+- 品質保証の方法論
+- ドキュメントのベストプラクティス
+- オープンソースプロジェクト構造
 
-Perfect for learning Python packaging, testing, and quality assurance! 🐍✨
+Pythonのパッケージング、テスト、品質保証を学ぶのに最適です！🐍✨
 ## 🔄 Trigger GitHub Actions / GitHub Actionsのトリガー
 
 GitHub Actionsワークフローは以下のイベントで自動的にトリガーされます：

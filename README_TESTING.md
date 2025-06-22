@@ -1,12 +1,10 @@
-# テストガイド / Testing Guide
+# テストガイド
 
-## 概要 / Overview
+## 概要
 
 このプロジェクトには包括的なテストスイートが含まれており、`add_one`関数の品質と信頼性を確保しています。
 
-This project includes a comprehensive test suite to ensure the quality and reliability of the `add_one` function.
-
-## テスト構造 / Test Structure
+## テスト構造
 
 ```
 tests/
@@ -22,7 +20,7 @@ tests/
 
 **総テストケース数: 78 (100% passing)**
 
-## テストカテゴリ / Test Categories
+## テストカテゴリ
 
 ### 1. 基本機能テスト (test_main.py) - 18 cases
 - 正常系テスト（正の整数、負の整数、ゼロ）
@@ -72,9 +70,9 @@ tests/
 - メモリ効率性
 - ドキュメント可用性
 
-## テスト実行方法 / How to Run Tests
+## テスト実行方法
 
-### 基本実行 / Basic Execution
+### 基本実行
 ```bash
 # 仮想環境をアクティベート
 venv\Scripts\activate  # Windows
@@ -93,7 +91,7 @@ pytest -v
 pytest tests/test_main.py
 ```
 
-### カバレッジ付き実行 / With Coverage
+### カバレッジ付き実行
 ```bash
 # カバレッジレポート付きテスト実行
 PYTHONPATH=src python3 -m pytest tests/ --cov=src/package_trial_zenjiro --cov-report=term-missing
@@ -105,7 +103,7 @@ PYTHONPATH=src python3 -m pytest tests/ --cov=src/package_trial_zenjiro --cov-re
 PYTHONPATH=src python3 -m pytest tests/ -v --cov=src/package_trial_zenjiro --cov-report=xml --cov-fail-under=90
 ```
 
-### 特定のテスト実行 / Running Specific Tests
+### 特定のテスト実行
 ```bash
 # 特定のテストクラス
 pytest tests/test_main.py::TestAddOne
@@ -117,7 +115,7 @@ pytest tests/test_main.py::TestAddOne::test_add_one_positive_integer
 pytest -k "test_add_one_positive"
 ```
 
-## テスト設定 / Test Configuration
+## テスト設定
 
 `pyproject.toml`に以下の設定が含まれています：
 
@@ -125,7 +123,7 @@ pytest -k "test_add_one_positive"
 - **カバレッジ設定**: ソースディレクトリ、除外パターン、レポート形式
 - **カバレッジ閾値**: 90%以上のカバレッジを要求
 
-## フィクスチャ / Fixtures
+## フィクスチャ
 
 `conftest.py`には以下の共通フィクスチャが定義されています：
 
@@ -133,9 +131,9 @@ pytest -k "test_add_one_positive"
 - `invalid_inputs`: 無効な入力タイプ
 - `special_float_values`: 特殊な浮動小数点値
 
-## テスト品質指標 / Test Quality Metrics
+## テスト品質指標
 
-### 現在の達成状況 / Current Achievement
+### 現在の達成状況
 - **総テストケース数**: 78 (100% passing)
 - **行カバレッジ**: 100% (目標: 90%以上)
 - **分岐カバレッジ**: 100% (該当する場合)
@@ -143,7 +141,7 @@ pytest -k "test_add_one_positive"
 - **テスト成功率**: 100% (78/78)
 - **CI/CD統合**: 完全自動化
 
-### カテゴリ別テストケース数 / Test Cases by Category
+### カテゴリ別テストケース数
 - **基本機能テスト**: 18 ケース ✅
 - **エッジケーステスト**: 14 ケース ✅
 - **高度なシナリオテスト**: 21 ケース ✅
@@ -151,36 +149,36 @@ pytest -k "test_add_one_positive"
 - **統合テスト**: 9 ケース ✅
 - **品質・ドキュメントテスト**: 11 ケース ✅
 
-### CI/CD品質ゲート / CI/CD Quality Gates
+### CI/CD品質ゲート
 - **自動テスト実行**: Python 3.10-3.13 マトリックス
 - **コード品質チェック**: Black, isort, flake8 (0 errors)
 - **セキュリティスキャン**: Safety, Bandit, Semgrep, CodeQL
 - **カバレッジ検証**: 90%以上必須 (現在100%)
 - **パフォーマンス検証**: 自動実行時間監視
 
-## ベストプラクティス / Best Practices
+## ベストプラクティス
 
-### テスト作成時の指針 / Test Creation Guidelines
+### テスト作成時の指針
 1. **AAA パターン**: Arrange, Act, Assert
 2. **明確な命名**: テスト内容が分かる関数名
 3. **独立性**: テスト間の依存関係を避ける
 4. **再現性**: 常に同じ結果を返す
 5. **適切な粒度**: 1つのテストで1つの機能をテスト
 
-### エラーハンドリングテスト / Error Handling Tests
+### エラーハンドリングテスト
 - 無効な入力タイプに対する`TypeError`
 - 境界値での動作確認
 - 特殊値（無限大、NaN）の処理
 
-## CI/CD統合 / CI/CD Integration
+## CI/CD統合
 
-### 自動化されたテスト実行 / Automated Test Execution
+### 自動化されたテスト実行
 - **プッシュ時**: 全テストスイートが自動実行
 - **プルリクエスト時**: 包括的な品質チェック
 - **日次**: セキュリティスキャンとパフォーマンステスト
 - **週次**: 依存関係更新とCodeQL分析
 
-### 品質ゲート / Quality Gates
+### 品質ゲート
 ```yaml
 # CI/CDで実行されるテストコマンド
 PYTHONPATH=src python3 -m pytest tests/ -v \
@@ -189,29 +187,29 @@ PYTHONPATH=src python3 -m pytest tests/ -v \
   --cov-fail-under=90
 ```
 
-### GitHub Actionsワークフロー / GitHub Actions Workflows
+### GitHub Actionsワークフロー
 - **CI Tests**: 5つのPythonバージョンでマトリックステスト
 - **Code Quality**: Black, isort, flake8による品質チェック
 - **PR Validation**: プルリクエスト専用の包括的検証
 - **Security Scan**: 複数ツールによるセキュリティ分析
 
-## 継続的改善 / Continuous Improvement
+## 継続的改善
 
-### 新機能追加時 / When Adding New Features
+### 新機能追加時
 1. 対応するテストケースを追加
 2. カバレッジが90%以上を維持（現在100%）
 3. 既存テストが全て通過することを確認
 4. CI/CDパイプラインでの自動検証
 
-### テストメンテナンス / Test Maintenance
+### テストメンテナンス
 - **自動実行**: CI/CDによる継続的テスト実行
 - **品質監視**: 自動的な品質メトリクス追跡
 - **セキュリティ**: 依存関係の脆弱性自動検出
 - **パフォーマンス**: 実行時間の自動監視
 
-## トラブルシューティング / Troubleshooting
+## トラブルシューティング
 
-### よくある問題 / Common Issues
+### よくある問題
 
 1. **インポートエラー**
    ```bash
@@ -233,7 +231,7 @@ PYTHONPATH=src python3 -m pytest tests/ -v \
    pytest -n auto
    ```
 
-## 参考資料 / References
+## 参考資料
 
 - [pytest公式ドキュメント](https://docs.pytest.org/)
 - [pytest-cov](https://pytest-cov.readthedocs.io/)
