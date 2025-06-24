@@ -119,6 +119,8 @@ safety check               # セキュリティチェック
 
 詳細については [Status Checks ドキュメント](docs/status_checks.md) をご覧ください。
 
+> **テスト更新**: このPRでは新しいStatus Checksワークフローの動作をテストしています。
+
 ## 📊 プロジェクト構造
 
 ```
