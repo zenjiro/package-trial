@@ -38,15 +38,20 @@ jobs:
             const workflowRun = context.payload.workflow_run;
             headSha = workflowRun.head_sha;
             
-            const { data: prs } = await github.rest.pulls.list({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              head: `${context.repo.owner}:${workflowRun.head_branch}`
-            });
-            
-            if (prs.length > 0) {
-              prNumber = prs[0].number;
+            if (workflowRun.pull_requests && workflowRun.pull_requests.length > 0) {
+              prNumber = workflowRun.pull_requests[0].number;
+            } else {
+              // Fallback if pull_requests array is empty or not present
+              const { data: prs } = await github.rest.pulls.list({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+                head: `${context.repo.owner}:${workflowRun.head_branch}`
+              });
+              
+              if (prs.length > 0) {
+                prNumber = prs[0].number;
+              }
             }
           }
           
