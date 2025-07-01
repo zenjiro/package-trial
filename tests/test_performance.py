@@ -56,7 +56,7 @@ class TestPerformance:
         total_time = end_time - start_time
 
         # Should scale linearly - rough performance check
-        # Allow more time in CI environments (5 microseconds per operation)
+        # Allow more time in CI environments (100 microseconds per operation)
         expected_max_time = data_size * 0.0001  # 100 microseconds per operation
         assert total_time < expected_max_time
 
